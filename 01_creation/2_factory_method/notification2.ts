@@ -1,4 +1,5 @@
 interface Notification {
+  send(): void;
   display(): void;
 }
 
@@ -11,8 +12,12 @@ class EmailNotification implements Notification {
     this.message = message;
   }
 
-  display(): void {
+  send(): void {
     console.log(`Sending email to ${this.recipient}: ${this.message}`);
+  }
+
+  display(): void {
+    console.log(`Displaying email to ${this.recipient}: ${this.message}`);
   }
 }
 
@@ -25,20 +30,11 @@ class SMSNotification implements Notification {
     this.message = message;
   }
 
-  display(): void {
+  send(): void {
     console.log(`Sending SMS to ${this.recipient}: ${this.message}`);
   }
-}
 
-class NotificationFactory {
-  public static createNotification(type: string, recipient: string, message: string): Notification {
-    switch (type) {
-      case 'email':
-        return new EmailNotification(recipient, message);
-      case 'sms':
-        return new SMSNotification(recipient, message);
-      default:
-        throw new Error('Invalid notification type');
-    }
+  display(): void {
+    console.log(`Displaying SMS to ${this.recipient}: ${this.message}`);
   }
 }
