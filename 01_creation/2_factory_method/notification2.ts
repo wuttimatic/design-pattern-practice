@@ -1,5 +1,8 @@
+// notification2.ts
+
 export interface Notification {
   send(): void;
+  getEmailAddress(): string; // Added method
 }
 
 class EmailNotification implements Notification {
