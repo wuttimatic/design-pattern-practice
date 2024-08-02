@@ -1,6 +1,5 @@
 interface Notification {
   send(): void;
-  display(): void;
 }
 
 class EmailNotification implements Notification {
@@ -15,10 +14,6 @@ class EmailNotification implements Notification {
   send(): void {
     console.log(`Sending email to ${this.recipient}: ${this.message}`);
   }
-
-  display(): void {
-    console.log(`Displaying email to ${this.recipient}: ${this.message}`);
-  }
 }
 
 class SMSNotification implements Notification {
@@ -32,9 +27,5 @@ class SMSNotification implements Notification {
 
   send(): void {
     console.log(`Sending SMS to ${this.recipient}: ${this.message}`);
-  }
-
-  display(): void {
-    console.log(`Displaying SMS to ${this.recipient}: ${this.message}`);
   }
 }
