@@ -1,4 +1,4 @@
-interface Notification {
+export interface Notification {
   send(): void;
 }
 
